@@ -56,7 +56,7 @@ class SearchSuggest(View):
                     re_datas.append(source["title"])
                     # re_datas.append(source["content"])
             return HttpResponse(
-                json.dumps(re_datas),
+                json.dumps([x[0] for x in re_datas]),
                 content_type="application/json")
         elif current_page == "job":
             re_datas = []
@@ -78,7 +78,7 @@ class SearchSuggest(View):
                     re_datas.append(name)
                     # re_datas.append(source["content"])
             return HttpResponse(
-                json.dumps(re_datas),
+                json.dumps([x[0] for x in re_datas]),
                 content_type="application/json")
         elif current_page == "question":
             re_datas = []
@@ -104,7 +104,7 @@ class SearchSuggest(View):
                 for name in name_set:
                     re_datas.append(name)
             return HttpResponse(
-                json.dumps(re_datas),
+                json.dumps([x[0] for x in re_datas]),
                 content_type="application/json")
 
 
